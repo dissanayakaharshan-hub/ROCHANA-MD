@@ -107,7 +107,7 @@ Stay smart. Stay connected.
 
 await rochana.sendMessage(ownerNumber[0] + "@s.whatsapp.net", {
   image: {
-    url: "https://github.com/dissanayakaharshan-hub/ROCHANA-MD/blob/main/img/ChatGPT%20Image%20Oct%2022,%202025,%2007_07_57%20AM.png?raw=true",
+    url: "https://github.com/dissanayakaharshan-hub/ROCHANA-MD/blob/main/img/G.png?raw=true",
   },
   caption: up,
 });
