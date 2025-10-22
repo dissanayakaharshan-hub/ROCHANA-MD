@@ -27,7 +27,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const prefix = '.';
-const ownerNumber = ['94776121326'];
+const ownerNumber = ['94766443560'];
 const credsPath = path.join(__dirname, '/auth_info_baileys/creds.json');
 
 async function ensureSessionFile() {
@@ -63,7 +63,7 @@ async function ensureSessionFile() {
 }
 
 async function connectToWA() {
-  console.log("Connecting DANUWA-MD 🧬...");
+  console.log("Connecting ROCHANA-MD 🧬...");
   const { state, saveCreds } = await useMultiFileAuthState(path.join(__dirname, '/auth_info_baileys/'));
   const { version } = await fetchLatestBaileysVersion();
 
@@ -85,21 +85,33 @@ async function connectToWA() {
         connectToWA();
       }
     } else if (connection === 'open') {
-      console.log('✅ DANUWA-MD connected to WhatsApp');
+      console.log('✅ ROCHANA-MD connected to WhatsApp');
 
-      const up = `DANUWA-MD connected ✅\n\nPREFIX: ${prefix}`;
-      await danuwa.sendMessage(ownerNumber[0] + "@s.whatsapp.net", {
-        image: { url: `https://github.com/DANUWA-MD/DANUWA-MD/blob/main/images/DANUWA-MD.png?raw=true` },
-        caption: up
-      });
+     const up = `
+🚀 *Connecting to ROCHANA-MD WhatsApp Bot...*\n
+🔹 Initializing system modules...\n
+🔹 Verifying session data...\n
+🔹 Establishing secure link 🔒\n
+✅ Connection successful!\n
+\n━━━━━━━━━━━━━━━━━━━━━━\n
+💫 *Welcome to ROCHANA-MD!*\n
+Your ultimate smart WhatsApp assistant is now online.\n
+Type *help* to explore commands or start a conversation.\n
+\n━━━━━━━━━━━━━━━━━━━━━━\n
+💻 *Developed by:* Rochana Janadeepa\n
+🔗 *GitHub:* https://github.com/dissanayakaharshan-hub/ROCHANA-MD\n
+━━━━━━━━━━━━━━━━━━━━━━\n
+🤖 Thank you for connecting to ROCHANA-MD.\n
+Stay smart. Stay connected.
+`;
 
-      fs.readdirSync("./plugins/").forEach((plugin) => {
-        if (path.extname(plugin).toLowerCase() === ".js") {
-          require(`./plugins/${plugin}`);
-        }
-      });
-    }
-  });
+await danuwa.sendMessage(ownerNumber[0] + "@s.whatsapp.net", {
+  image: {
+    url: "https://github.com/dissanayakaharshan-hub/ROCHANA-MD/blob/main/img/ChatGPT%20Image%20Oct%2022,%202025,%2007_07_57%20AM.png?raw=true",
+  },
+  caption: up,
+});
+
 
   danuwa.ev.on('creds.update', saveCreds);
 
@@ -179,7 +191,7 @@ async function connectToWA() {
 ensureSessionFile();
 
 app.get("/", (req, res) => {
-  res.send("Hey, DANUWA-MD started✅");
+  res.send("Hey, ROCHANA-MD started✅");
 });
 
 app.listen(port, () => console.log(`Server listening on http://localhost:${port}`));
